@@ -1,0 +1,1 @@
+GET https://api.quran.com/api/v4/chapters?language=en

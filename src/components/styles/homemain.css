@@ -1,0 +1,177 @@
+#options{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    list-style: none;
+    display: flex;
+    flex-flow: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding: 5px 10px;
+    z-index: 1;
+    /* From https://css.glass */
+background: rgba(255, 255, 255, 0.13);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5.3px);
+-webkit-backdrop-filter: blur(5.3px);
+}
+#options>div{
+    height: 30px;
+    margin: 0 5px;
+}
+#options>div:last-child>div{
+    height: 100%;
+    float: left;
+}
+.format>img{
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.filter{
+    background-color: var(--main_bg);
+    border-radius: 10px;
+    margin-right: 10px;
+    overflow: hidden;
+}
+.filter>*{
+    height: 100%;
+    float: left;
+}
+.filter>input{
+border: none;
+margin-left: 10px;
+background-color: var(--main_bg);
+}
+.filter>input:focus{
+    outline: none;
+}
+.filter path{
+    stroke: var(--main_text);
+}
+.filter>.sf{
+    margin-right:10px;
+    cursor: pointer;
+}
+.short>*{
+    border-radius: 10px;
+    background-color: var(--main_bg);
+}
+#sopt{
+    list-style: none;
+    margin-top: 5px;
+    overflow: hidden;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.sopt_tog{
+    height: 0;
+}
+#sopt li{
+    padding: 5px 10px;
+    cursor: pointer;
+}
+#sopt a{
+    text-decoration: none;
+    color: var(--main_bg);
+}
+.short>p{
+padding: 5px;
+color: #7c7c7c;
+
+}
+.short>p>samp{
+    padding: 5px 10px;
+ cursor: pointer;
+    border-radius: 10px;
+    background-color: var(--theme_color);
+    color: var(--main_bg);
+}
+
+#feeds{
+    margin-top:10px;
+    z-index: 0;
+}
+.grid{
+    display: grid;
+    width: auto;
+    grid-template-columns: auto auto auto;
+}
+.list{
+    display: flex;
+    flex-direction: column;
+}
+.feed{
+    cursor: pointer;
+    min-width: calc((100% - 30px)/3);
+    padding: 20px;
+    margin: 5px;
+    border-radius: 10px;
+    background-color: var(--deep_bg);
+    transition: 0.2s ease-out;
+    text-decoration: none;
+    color: var(--main_text);
+}
+.feed:hover{
+    transform: scale(1.03);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.feed>div{
+    display: flex;
+    justify-content: space-between;
+}
+.srno{
+    background-color: #d3f4eb;
+    color:var(--theme_color);
+    height: 20px;
+    min-width: 20px;
+    font: 0.8em sans-serif;
+    max-width: auto;
+    padding: 3px;
+    border-radius: 10px;
+    text-align: center;
+}
+.f_data,.f_data samp{
+    font-size: 10px;
+}
+.f_data h1:nth-child(2),.pverses{
+    text-align: right;
+}
+#p_feed .f_data{
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 20px;
+    background-color: #eff4f7;
+}
+.para_scroll{
+    width: 100%;
+    height: 200px;
+    overflow-y: scroll;
+    display: flex;
+    flex-flow: column;
+
+}
+.para_scroll::-webkit-scrollbar{
+    display: none;
+}
+.para_scroll>div{
+    width: 100%;
+
+}
+.para_scroll h1:nth-child(2),.pverses{
+    line-height: 10px;
+    font-size: 10px;
+}
+#likeSVG{
+    position: relative;
+    cursor: pointer;
+    visibility: hidden;
+}
+#likeSVG::after{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    content: url("../../../public/like.svg");
+    visibility: visible;
+}

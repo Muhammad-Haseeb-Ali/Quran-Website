@@ -1,0 +1,61 @@
+.ban_switch {
+    position: absolute;
+    bottom: 100px;
+    left: 150px;
+  }
+  .nav_switch{
+    position: relative;
+  }
+  /* Hide default HTML checkbox */
+  #themebtn {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(204, 204, 204, 0.527);
+    transform: translate(0, -50%);
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50px;
+    opacity: 100%;
+  }
+  .nav_switch .slider{
+    width: 50px;
+    height: 25px;
+  }
+  .ban_switch .slider{
+    width: 100px;
+    height: 50px;
+  }
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 50%;
+    background-color: var(--main_bg);
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 25px;
+  }
+  
+  #themebtn:checked + .slider {
+    background-color: #c2f3e6;
+  }
+  /* input:focus + .slider {
+    box-shadow: 0 0 1px #d3f4eb;
+  } */
+  
+  #themebtn:checked + .slider:before {
+    -webkit-transform: translateX(100%);
+    -ms-transform: translateX(100%);
+    transform: translateX(100%);
+  }

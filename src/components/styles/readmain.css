@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic&family=Roboto:wght@100&display=swap');
+
+#read_main::-webkit-scrollbar{
+    display: none;
+    position: relative;
+}
+.ayat{
+    position: relative;
+    width: 100%;
+    background-color: var(--main_bg);
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 20px;
+}
+.contant_top_nav{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    align-items: center;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.13);
+border-radius: 16px;
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(5.3px);
+-webkit-backdrop-filter: blur(5.3px);
+}
+.contant_top_nav>div{
+    background-color: var(--main_bg);
+    padding: 2px 10px;
+    border-radius: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+}
+.contant_top_nav svg{
+    margin:2px 5px;
+    cursor: pointer;
+}
+.contant_info_header{
+    width: 100%;
+    background-color: var(--theme_color);
+    border-radius: 20px;
+    padding: 50px 0;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+/* .like_btn_4_contant_info_header{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    background-color: var(--main_bg);
+} */
+.contant_info_header>div:first-child>p{
+    border: 2px solid black;
+    border-radius: 30px;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px 10px;
+    margin-bottom: 20px;
+
+}
+.contant_info_header>div:last-child>p{
+    margin-top: 20px;
+}
+.bismalh{
+    color: var(--main_text);
+    text-align: center;
+    font-family: 'Noto Naskh Arabic', serif;
+}
+.ayat_no{
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    font-weight: bold;
+    color: var(--theme_color);
+    background-color: #a1faea;
+    padding: 1px 10px;
+    border-radius: 20px;
+}
+.arabic_ayat{
+    text-align: right;
+    margin: 15px 0;
+    padding-left: 50px;
+    margin-top: 30px;
+}
+.arabic_ayat>samp{
+    position: relative;
+    font-family: 'Noto Naskh Arabic', serif;
+    cursor: pointer;
+    color: var(--main_text);
+}
+.arabic_ayat>samp:hover{
+    color: var(--theme_color);
+}
+.arabic_ayat>samp::after{
+    position: absolute;
+    left: 50%;
+    bottom: 100%;
+    background-color: var(--theme_color);
+    color: var(--main_bg);
+    transform: translate(-50%,0);
+    text-align: center;
+    content: attr(means);
+    display: none;
+    font-size: small;
+    padding: 5px 10px;
+    border-radius: 10px;
+}
+.arabic_ayat>samp:hover:not(:last-child):after{
+    display:inline;
+}
+.arabic_ayat>samp:last-child{
+    height: 20px;
+    font-size: 20px;
+    padding: 0.5px 10px;
+    border-radius: 20px;
+    border: 1px solid var(--main_text);
+}
+.eng_ayat{
+    margin-bottom: 10px;
+}
+.eng_ayat>samp{
+    font-family:sans-serif;
+    font-family: 'Roboto', sans-serif;
+    color: var(--main_text);
+}
+.ayat hr{
+    margin: 0;
+}
+.ayat_opt{
+    height: 30px;
+    margin: 10px;
+}
+.ayat_opt>div{
+    float: left;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+#loading_arabic_ayat{
+    height: 50px;
+    margin-bottom: 20px;
+}
+#loading_arabic_ayat samp{
+    width: 500px;
+    height: 100%;
+    float: right;
+}
+#loading_ayat_no{
+    height: 20px;
+    width: 40px;
+
+}
+#loading_ayat_opt{
+    height: 50px;
+}
+#loading_ayat_opt>div{
+    height: 100%;
+    width: 50px;
+    float: left;
+    margin:  5px;
+}
+#loading_arabic_ayat samp , #loading_ayat_no , #loading_ayat_opt>div{
+    background-color: #ebe4e4;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+}
+#loading_arabic_ayat samp::after , #loading_ayat_no::after , #loading_ayat_opt>div::after{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(90deg ,transparent, #d4d4d4 , transparent);
+    animation: animate 2s linear infinite;
+}
+@keyframes animate {
+    0%{
+        left: -100%;
+    }
+    40%{
+        left: 100%;
+    }
+    100%{
+        left: 100%;
+    }
+}
+
+.progress_bar{
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background-color: #c7c2c2;
+    border-radius: 5px;
+    overflow: hidden;
+}
+#current_progress{
+    width: 0;
+    height: 100%;
+    background-color: var(--theme_color);
+}
+
+.slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: calc(100% - 20px); /* Full-width */
+    height: 5px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    margin: 10px;
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+    border-radius: 2px;
+  }
+  
+  /* Mouse-over effects */
+  .slider:hover {
+    opacity: 1; /* Fully shown on mouse-over */
+  }
+  
+  /* The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    width: 15px; /* Set a specific slider handle width */
+    height: 15px; /* Slider handle height */
+    background: var(--theme_color); /* Green background */
+    cursor: pointer; /* Cursor on hover */
+    border-radius: 10px;
+  }
+  
+  .slider::-moz-range-thumb {
+    width: 15px; /* Set a specific slider handle width */
+    height: 15px; /* Slider handle height */
+    background: var(--theme_color); /* Green background */
+    cursor: pointer; /* Cursor on hover */
+    border-radius: 10px;
+  }

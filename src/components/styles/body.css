@@ -1,0 +1,9 @@
+.body{
+    width: 100%;
+    height: calc(100vh - 50px);
+    display: flex;
+    justify-content: space-between;
+}
+.body>div{
+    height: 100%;
+}

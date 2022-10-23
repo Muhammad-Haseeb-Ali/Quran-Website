@@ -1,0 +1,248 @@
+#audio_main {
+  position: relative;
+}
+#audio_main::-webkit-scrollbar {
+  display: none;
+}
+#audio_main #right_menu {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 300px;
+  /* From https://css.glass */
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4.1px);
+  -webkit-backdrop-filter: blur(4.1px);
+}
+.player {
+  height: 100%;
+  width: calc(100% - 300px);
+}
+.player_banner {
+  width: 100%;
+  height: calc(100% - 200px);
+  background-color: var(--main_bg);
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+}
+.player_banner > .bg {
+  position: absolute;
+  top: -70%;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+}
+.surah_info {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.top_name {
+  padding: 20px;
+  font-size: medium;
+  color: var(--main_bg);
+  z-index: 2;
+}
+.player_banner>.reciter_info{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.reciter_info {
+  height: 80px;
+  margin: 20px;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+.reciter_info > h1 {
+  text-align: right;
+}
+.reciter_info > img {
+  height: 100%;
+  border-radius: 20px;
+}
+.player_controller {
+  width: 100%;
+  height: 200px;
+  padding: 20px;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+.slides {
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  align-items: flex-end;
+}
+#audio_slide {
+  position: relative;
+  appearance: none;
+  width: calc(100% - 60px); /* Full-width */
+  height: 10px;
+  border-radius: 10px;
+  background-color: var(--main_bg);
+  -webkit-appearance: none; /* Override default CSS styles */
+  appearance: none;
+  outline: none; /* Remove outline */
+  -webkit-transition: 0.2s; /* 0.2 seconds transition on hover */
+  transition: opacity 0.2s;
+  cursor: pointer;
+}
+#audio_slide::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 15px; /* Set a specific slider handle width */
+  height: 15px; /* Slider handle height */
+  border-radius: 10px;
+  background: var(--theme_color); /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+
+#audio_slide::-moz-range-thumb {
+  width: 15px; /* Set a specific slider handle width */
+  height: 15px; /* Slider handle height */
+  border-radius: 10px;
+  background: var(--theme_color); /* Green background */
+  cursor: pointer; /* Cursor on hover */
+}
+#volume_slide {
+  width: 50px;
+  height: 20px;
+  margin-left: 10px;
+  display: flex;
+  flex-flow: row-reverse;
+  align-items: flex-end;
+}
+#volume_slide > input {
+  appearance: none;
+  width: 6px;
+  margin: 0 2px;
+  border-radius: 10px;
+  background-color: var(--main_bg);
+  cursor: pointer;
+}
+#volume_slide > input:nth-child(5) {
+  height: 20%;
+}
+#volume_slide > input:nth-child(4) {
+  height: 40%;
+}
+#volume_slide > input:nth-child(3) {
+  height: 60%;
+}
+#volume_slide > input:nth-child(2) {
+  height: 80%;
+}
+#volume_slide > input:nth-child(1) {
+  height: 100%;
+}
+#volume_slide > input:hover {
+  background-color: #0091766b;
+}
+#volume_slide > input:hover ~ input {
+  background-color: #0091766b;
+}
+#volume_slide > input:checked {
+  background-color: var(--theme_color);
+}
+#volume_slide > input:checked ~ input {
+  background-color: var(--theme_color);
+}
+#audio_slide::after {
+  position: absolute;
+  right: 0;
+  bottom: 10px;
+  content: "hello";
+}
+
+#audio_btns {
+}
+#audio_btns > button {
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+  border: none;
+  background-color: var(--main_bg);
+  border-radius: 25px;
+  cursor: pointer;
+}
+#right_menu{
+  position: relative;
+  height: 100%;
+  overflow-y: scroll;
+}
+#right_menu::-webkit-scrollbar{
+  width: 10px;
+  background-color: #b2bec3;
+  border-top: 18px transparent solid;
+  border-bottom: 18px transparent solid;
+  border-right: 6px transparent solid;
+  border-left: 1px transparent solid;
+  background-clip: padding-box;
+}
+#right_menu::-webkit-scrollbar-thumb{
+  background-color:var(--theme_color);
+  border-top: 20px transparent solid;
+  border-bottom: 20px transparent solid;
+  border-right: 6px transparent solid;
+  border-left: 1px transparent solid;
+  background-clip: padding-box;
+}
+#right_menu::-webkit-scrollbar-thumb:hover{
+  border-top: 20px transparent solid;
+  border-bottom: 20px transparent solid;
+  border-right: 5px transparent solid;
+  border-left: 0px transparent solid;
+}
+#recitation_style{
+  position: sticky;
+  top: 10px;
+  width: calc(100% - 20px);
+  padding: 5px;
+  margin: 0 10px;
+  background: rgba(255, 255, 255, 0.13);
+  border-radius: 16px;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5.3px);
+  -webkit-backdrop-filter: blur(5.3px);
+  display: flex;
+  justify-content: center;
+  z-index: 1;
+}
+#recitation_style_selector{
+  width: 100px;
+  height: 30px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+#recitation_style_selector>option{
+  margin: 5px 10px;
+}
+#recitation_style_selector>option:hover{
+  background-color: var(--theme_color);
+}
+.recitor{
+  width: 100%;
+  margin: 5px 0;
+}
+.recitor>.reciter_info:hover{
+  background-color: var(--main_bg);
+}
+.recitor>.reciter_info{
+  padding: 5px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+.recitor>.reciter_info h1{
+  color: black;
+  text-align: left;
+  z-index: 0;
+}

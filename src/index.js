@@ -1,13 +1,49 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import './index.css';
-import App from './App';
+import Main from './pages/Main'
+import HomeMain from './components/HomeMain';
+import ReadMain from './components/ReadMain';
+import MarkMain from './components/MarkMain'
+import LikeMain from './components/LikeMain'
+import AudioMain from './components/AudioMain'
+import SettingMain from './components/SettingMain'
+import NotFound from './pages/NotFound';
 import reportWebVitals from './reportWebVitals';
+
+import store from './redux/store'
+import { Provider } from 'react-redux'
+import { Auth0Provider } from '@auth0/auth0-react';
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+      <Auth0Provider
+    domain="dev-q5dq5eo0hwk5nmgm.us.auth0.com"
+    clientId="dnTT6EQK5BR8Ic44GKajliOXv3UtpSy5"
+    redirectUri={window.location.origin}
+  >
+        <Provider store={store}>
+    <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<Main/>} >
+      <Route path='/' element={<Navigate to='/home'/>} />
+      <Route path='/home' element={<Navigate to='/home/surah'/>}/>
+      <Route path='/home/:short' element={<HomeMain/>} />
+      <Route path='/home/:short/:id' element={<ReadMain/>} />
+      <Route path='/mark' element={<MarkMain/>} />
+      <Route path='/like' element={<LikeMain />} />
+      <Route path='/recitation' element={<Navigate to='/recitation/Mishari Rashid al-`Afasy/1'/>} />
+      <Route path='/recitation/:reciter/:id' element={<AudioMain />} />
+      <Route path='/setting' element={<SettingMain />} />
+      <Route path='/*' element={<NotFound/>}/>
+      </Route>
+    </Routes>
+    </BrowserRouter>
+    </Provider>
+  </Auth0Provider>
   </React.StrictMode>
 );
 

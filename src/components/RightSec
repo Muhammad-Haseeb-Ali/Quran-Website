@@ -1,0 +1,119 @@
+      <div className="right" id="read_right">
+        <h1 className="sub_heading">
+          Ayat Size : <samp id="demo"></samp>
+        </h1>
+        <input
+          onInput={sliderVal}
+          type="range"
+          min="1"
+          max="100"
+          class="slider"
+          id="myRange"
+        />
+        <h1 className="sub_heading">
+          Ayat Size : <samp id="demo"></samp>
+        </h1>
+        <input
+          onInput={sliderVal}
+          type="range"
+          min="1"
+          max="100"
+          class="slider"
+          id="myRange"
+        />
+      </div>
+
+
+      <div className="right">
+        <div className="profile" >
+            <div>
+            <img src="/defaultprofile.png" />
+            <h3>Salam, Dear</h3>
+            </div>
+
+            <button className="login_btn">Login</button>
+        </div>
+        <div className="about_cot">
+            <h4>Al Quran</h4>
+            <p>means “the reading” or “the recitation”, and refers to the divinely revealed scripture given to Muhammad. Since Muhammad is considered the last prophet of God, the Qur’an is believed to be the final revelation from God to humanity.</p>
+        </div>
+    </div>
+
+    <div className="right" id="like_right">
+        <div className="profile" >
+            <div>
+            <img src="/defaultprofile.png" />
+            <h3>Salam, Dear</h3>
+            </div>
+
+            <button className="login_btn">Login</button>
+        </div>
+        <div className="about_cot">
+            <h4>Al Quran</h4>
+            <p>means “the reading” or “the recitation”, and refers to the divinely revealed scripture given to Muhammad. Since Muhammad is considered the last prophet of God, the Qur’an is believed to be the final revelation from God to humanity.</p>
+        </div>
+    </div>
+
+    <div className="right" id="setting_right">
+        <ul className="setting_menu">
+            <li>Setting</li>
+            <li><a href='#target'>Theme</a></li>
+            <li><a href='#target'>Font</a></li>
+            <li><a href='#target'>Audio</a></li>
+            <li>Reset</li>
+        </ul>
+    </div>
+
+    <div className="right" id='audio_right'>
+        <h1 className='sub_heading'>Recitaion</h1>
+        <ul className='quran_racitations'>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+
+        </ul>
+        <div className='player_cover'>
+            <img src='/AbdulBaset AbdulSamad.jpg' />
+            <div className='player'></div>
+        </div>
+    </div>
+
+    <div className="right" id='audio_right'>
+        <h1 className='sub_heading'>Recitaion</h1>
+        <ul className='quran_racitations'>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+
+        </ul>
+        <div className='player_cover'>
+            <img src='/AbdulBaset AbdulSamad.jpg' />
+            <div className='player'></div>
+        </div>
+    </div>

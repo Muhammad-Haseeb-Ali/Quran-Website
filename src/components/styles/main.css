@@ -1,0 +1,40 @@
+.main{
+    position: relative;
+    width: calc(100vw - 60px);
+    background-color: var(--back_bg);
+    margin: 5px 10px;
+    padding: 10px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+}
+.main::-webkit-scrollbar{
+    width: 10px;
+    background-color: #b2bec3;
+    border-top: 18px transparent solid;
+    border-bottom: 18px transparent solid;
+    border-right: 6px transparent solid;
+    border-left: 1px transparent solid;
+    background-clip: padding-box;
+}
+.main::-webkit-scrollbar-thumb{
+    background-color:var(--theme_color);
+    border-top: 20px transparent solid;
+    border-bottom: 20px transparent solid;
+    border-right: 6px transparent solid;
+    border-left: 1px transparent solid;
+    background-clip: padding-box;
+}
+.main::-webkit-scrollbar-thumb:hover{
+    border-top: 20px transparent solid;
+    border-bottom: 20px transparent solid;
+    border-right: 5px transparent solid;
+    border-left: 0px transparent solid;
+}
+.sub_heading{
+    margin: 5px;
+    font-size: small;
+    font-family: Arial, Helvetica, sans-serif;
+}
