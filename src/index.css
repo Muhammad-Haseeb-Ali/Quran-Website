@@ -2,13 +2,14 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color:var(--main_text);
 }
 body{
     width: 100vw;
     height: 100vh;
     overflow: hidden;
     background-color: var(--main_bg);
+    color: var(--main_text);
+
 }
 #root{
     width: 100%;

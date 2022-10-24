@@ -57,8 +57,9 @@ function SettingMain() {
           </div>
         </div>
       </div>
+      <hr />
+      <h1 className="sub_heading">Translations</h1>
       <div id="translations">
-        <h1 className="sub_heading">Translations</h1>
         <div id="trans_head">
           <p>sr#</p>
           <p>Translation</p>
@@ -66,26 +67,6 @@ function SettingMain() {
           <p>Language</p>
           <p>
             <RiAddLine />
-          </p>
-        </div>
-        <div id="trans_form">
-          <p>Add New One</p>
-          <select class="form-control">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-          <select class="form-control">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-          <p>
-            <RiSaveFill />
           </p>
         </div>
         <ul id="trans_list">

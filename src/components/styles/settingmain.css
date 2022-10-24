@@ -10,8 +10,8 @@
     height: 300px;
     border-radius: 30px;
     padding: 20px;
-    color: var(--main_bg);
     overflow: hidden;
+    color: var(--main_bg);
     background-image: url("../../../public/themebg.png");
     background-position: bottom left;
 }
@@ -143,7 +143,18 @@
 .display::-webkit-scrollbar{
     display: none;
 }
-#trans_head,#trans_list>li,#trans_form{
+#translations{
+    background-color: var(--main_bg);
+    border-radius: 20px;
+    padding: 20px 10px;
+}
+#trans_head{
+    background-color: #d3f4eb;
+    border-radius: 20px;
+    padding: 10px 0;
+    color: var(--theme_color);
+}
+#trans_head,#trans_list>li{
     width: 100%;
     display: flex;
     flex-flow: row;
@@ -159,17 +170,7 @@
     font-weight: bolder;
     cursor: pointer;
 }
-#trans_form{
-    background-color: #d3f4eb;
-    padding: 10px 0;
-    border-radius: 20px;
 
-}
-#trans_form>.form-control{
-    border: none;
-    padding: 10px;
-    border-radius: 20px;
-}
 #trans_list>li>p:last-child{
     background-color:var(--main_bg);
     color: red;
