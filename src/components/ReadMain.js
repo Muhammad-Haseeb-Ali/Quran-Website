@@ -37,7 +37,7 @@ function ReadMain() {
           loop[stage[1]].id
         }/verses?recitation=1&page=${stage[0]}&offset=${
           parseInt(loop[stage[1]].start) - 1
-        }&translations=${JSON.parse(localStorage.getItem("translation"))}`
+        }${JSON.parse(localStorage.getItem("translation")).length > 0 ? `&translations=${JSON.parse(localStorage.getItem("translation"))}` : ''}`
       )
         .then((res) => res.json())
         .catch((err) => err);

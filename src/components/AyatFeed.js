@@ -35,9 +35,9 @@ function AyatFeed(props) {
             ))}
           </h1>
           <h1 className="sub_heading">Transations :</h1>
-          {
+          {/* {
             props.data.translations.map((val,ind)=><h1>{val.text}</h1>)
-          }
+          } */}
           <h1>
             
           </h1>
