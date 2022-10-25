@@ -33,7 +33,7 @@ function ReadMain() {
     }
     async function dataFetching() {
       const result = await fetch(
-        `/api.quran.com/api/v3/chapters/${
+        `https://api.quran.com/api/v3/chapters/${
           loop[stage[1]].id
         }/verses?recitation=1&page=${stage[0]}&offset=${
           parseInt(loop[stage[1]].start) - 1
