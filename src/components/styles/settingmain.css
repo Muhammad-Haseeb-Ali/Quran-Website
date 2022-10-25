@@ -149,23 +149,21 @@
 #translations{
     background-color: var(--main_bg);
     border-radius: 20px;
-    padding: 20px 10px;
+    padding: 10px;
 }
 #trans_head{
     background-color: #d3f4eb;
     border-radius: 20px;
-    padding: 10px 0;
+    padding: 5px 10px;
     color: var(--theme_color);
-}
-#trans_head,#trans_list>li{
     width: 100%;
     display: flex;
     flex-flow: row;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     margin: 10px 0;
 }
-#trans_head>p:last-child,#trans_list>li>p:last-child{
+#trans_head>p:last-child{
     background-color: var(--theme_color);
     padding: 10px;
     border-radius: 10px;
@@ -174,9 +172,36 @@
     cursor: pointer;
 }
 
-#trans_list>li>p:last-child{
+#translations>table{
+    width: 100%;
+    padding: 0 5px;
+}
+#translations>table>tr{
+    margin: 5px 0;
+}
+#translations>table>tr>td:last-child{
     background-color:var(--main_bg);
     color: red;
+    text-align: center;
+    cursor: pointer;
+}
+#translations>table>tr>td{
+    padding: 0 5px;
+}
+#translations>table>tr>td:nth-child(1){
+    width: 10%;
+}
+#translations>table>tr>td:nth-child(2){
+        width: 30%;
+}
+#translations>table>tr>td:nth-child(3){
+        width: 30%;
+}
+#translations>table>tr>td:nth-child(4){
+        width: calc(30% - 40px);
+}
+#translations>table>tr>td:nth-child(5){
+        width: 40px;
 }
 
 #trans_form{
@@ -240,4 +265,37 @@
 #cncl{
     background-color: var(--back_bg);
     color: var(--main_text);
+}
+
+
+@media only screen and (max-width: 1200px){
+}
+@media only screen and (max-width: 700px){
+    #cir{
+        width: 300px;
+        height: 300px;
+    }
+    #icn{
+        width: 80px;
+        height: 80px;
+    }
+    #theme_card h4{
+        font-size: 3.5rem;
+    }
+}
+@media only screen and (max-width: 550px){
+    #font_sizes>div{
+        width: 100%;
+        float: top;
+        margin: 10px 0;
+    }
+    #theme_card h4{
+        font-size: 2.5rem;
+    }
+}
+@media only screen and (max-width: 450px){
+    #translations{
+        font-size: 10px;
+        font-weight: 800;
+    }
 }

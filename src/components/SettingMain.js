@@ -60,12 +60,12 @@ function SettingMain() {
     }
     else{localStorage.setItem("translation",JSON.stringify([tran[0]]))}
     togTrans("hide") 
+    upTranslist([...translist.filter(v=>v!=tran[0]),tran[0]])
     }
-    upTranslist([...translist,tran[0]])
-
   }
-  function deleteTrans() {
-    console.log("i will delete a translation");
+  function deleteTrans(id) {
+    upTranslist([...translist.filter(v=>v!=id)])
+    localStorage.setItem("translation",JSON.stringify([...translist.filter(v=>v!=id)]))
   }
   function optTog(o,l) {
     const tr1 = document.getElementById(o),
@@ -79,7 +79,7 @@ function SettingMain() {
     .then((data) => setTrans([...data.translations]))
     .catch((err) => console.error(err));
 
-    if(!JSON.parse(localStorage.getItem("translation"))){
+    if(!localStorage.getItem("translation")){
       localStorage.setItem("translation",JSON.stringify([]))
     }
     upTranslist([...JSON.parse(localStorage.getItem("translation"))])
@@ -129,22 +129,22 @@ function SettingMain() {
             <RiAddLine />
           </p>
         </div>
-        <ul id="trans_list">
-          {
+        <table>
+        {
                         trans.length > 0 ?
                         translist.map((value, i) => 
-                        <li key={i}>
-                        <p>{i+1}</p>
-                        <p>{trans.find(({ id }) => id === value).name}</p>
-                        <p>{trans.find(({ id }) => id === value).author_name}</p>
-                        <p>{trans.find(({ id }) => id === value).language_name}</p>
-                        <p>
+                        <tr key={i}>
+                        <td>{i+1}</td>
+                        <td>{trans.find(({ id }) => id === value).name}</td>
+                        <td>{trans.find(({ id }) => id === value).author_name}</td>
+                        <td>{trans.find(({ id }) => id === value).language_name}</td>
+                        <td onClick={()=>deleteTrans(value)}>
                           <RiDeleteBin7Fill />
-                        </p>
-                      </li>)
+                        </td>
+                      </tr>)
                         : null
           }
-        </ul>
+</table>
       </div>
       <hr />
       <h1 className="sub_heading">Font Sizes</h1>
