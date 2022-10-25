@@ -9,7 +9,7 @@ function SettingMain() {
   const theme = useSelector((state) => state.theme);
   const [lang, changeLang] = useState("Urdu")
   const [tran, changeTran] = useState([151,'Shaykh al-Hind Mahmud al-Hasan(with Tafsir E Usmani)'])
-  const [translist,upTranslist] = useState([...JSON.parse(localStorage.getItem("translation"))])
+  const [translist,upTranslist] = useState([])
   const [langs , setLangs] = useState([]);
   const [trans , setTrans] = useState([]);
   const navigator = useNavigate();
@@ -78,6 +78,12 @@ function SettingMain() {
     .then((response) => response.json())
     .then((data) => setTrans([...data.translations]))
     .catch((err) => console.error(err));
+
+    if(!JSON.parse(localStorage.getItem("translation"))){
+      localStorage.setItem("translation",JSON.stringify([]))
+    }
+    upTranslist([...JSON.parse(localStorage.getItem("translation"))])
+
   },[])
   return (
     <div className="main" id="setting_main">
