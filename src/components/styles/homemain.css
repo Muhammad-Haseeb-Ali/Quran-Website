@@ -142,7 +142,7 @@ color: #7c7c7c;
     padding: 10px;
     margin: 5px 0;
     border-radius: 20px;
-    background-color: #eff4f7;
+    background-color: var(--back_bg);
 }
 .para_scroll{
     width: 100%;
@@ -200,5 +200,8 @@ color: #7c7c7c;
     .filter{
         padding: 0 10px;
         border-radius: 20px;
+    }
+    .para_scroll{
+        height: auto;   
     }
 }

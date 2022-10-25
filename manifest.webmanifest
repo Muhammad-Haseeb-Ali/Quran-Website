@@ -1,0 +1,15 @@
+{
+    "background_color": "#029b7f",
+    "description": "Quran Website with Awesome an Interface.",
+    "display": "standalone",
+    "icons": [
+      {
+        "src": "public/logo.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      }
+    ],
+    "name": "Al Quran 360",
+    "short_name": "Quran",
+    "start_url": "https://alquran360.netlify.app/"
+  }
