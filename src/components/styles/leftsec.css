@@ -18,13 +18,7 @@
     cursor: pointer;
     display: flex;
     justify-content: center;
-    align-items: center;
     border-radius: 10px;
-}
-.left>ul>li:last-child{
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 15px;
 }
 .left svg>path{
     fill: #2C3E50;
@@ -32,4 +26,25 @@
 .left .active>svg>path{
     fill: var(--theme_color);
 }
+@media only screen and (min-width: 510px){
+    .left>ul>li:last-child{
+        position: absolute;
+        bottom: 0;
+        margin-bottom: 15px;
+    }
+    .left>ul>li{
+        align-items: center;
+    }    
+}
+@media only screen and (max-width: 510px){
+    .left{
+        width: 100%;
+    }
+    .left>ul{
+        width: 100%;
+        height: 100%;
+        flex-flow: row;
+        justify-content: space-around;
+    }
 
+}

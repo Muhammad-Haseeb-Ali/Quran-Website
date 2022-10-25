@@ -74,6 +74,27 @@ function HomeMain() {
           />
         </div>
         <div>
+          <div className="short">
+            <p>
+              Short by{" "}
+              <samp onClick={sopt_tog}>
+                {shortparam} {icon[0]}
+              </samp>{" "}
+            </p>
+            <p>
+              <samp onClick={sopt_tog}>
+                {shortparam} {icon[0]}
+              </samp>{" "}
+            </p>
+            <ul className="sopt_tog" id="sopt">
+              <NavLink to="/home/surah">
+                <li onClick={() => sopt_tog()}>surah</li>
+              </NavLink>
+              <NavLink to="/home/juz">
+                <li onClick={() => sopt_tog()}>juz</li>
+              </NavLink>
+            </ul>
+          </div>
           <div className="filter">
             <input
               onKeyDown={(e) =>
@@ -87,22 +108,6 @@ function HomeMain() {
               ref={ref}
             />
             {srchIcn}
-          </div>
-          <div className="short">
-            <p>
-              Short by{" "}
-              <samp onClick={sopt_tog}>
-                {shortparam} {icon[0]}
-              </samp>{" "}
-            </p>
-            <ul className="sopt_tog" id="sopt">
-              <NavLink to="/home/surah">
-                <li onClick={() => sopt_tog()}>surah</li>
-              </NavLink>
-              <NavLink to="/home/juz">
-                <li onClick={() => sopt_tog()}>juz</li>
-              </NavLink>
-            </ul>
           </div>
         </div>
       </div>

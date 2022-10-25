@@ -7,3 +7,12 @@
 .body>div{
     height: 100%;
 }
+@media only screen and (max-width: 510px){
+    .body{
+        flex-flow: column-reverse;
+        align-items: center;
+    }
+    .body>div:first-child{
+        height: 50px;
+    }
+}
