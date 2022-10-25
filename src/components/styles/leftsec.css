@@ -38,7 +38,12 @@
 }
 @media only screen and (max-width: 510px){
     .left{
+        position: fixed;
+        height: 50px;
         width: 100%;
+        bottom: 0;
+        left: 0;
+        background-color: var(--main_bg);
     }
     .left>ul{
         width: 100%;

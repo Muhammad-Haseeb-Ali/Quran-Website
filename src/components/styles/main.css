@@ -38,3 +38,8 @@
     font-size: small;
     font-family: Arial, Helvetica, sans-serif;
 }
+@media only screen and (max-width: 510px){
+.main::-webkit-scrollbar{
+    display: none;
+}
+}
