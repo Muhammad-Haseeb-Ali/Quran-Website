@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Noto+Naskh+Arabic&family=Roboto:wght@100&display=swap');
 
+#setting_main{
+    position: relative;
+}
 #setting_main>div{
     width: 100%;
     margin: 10px 0;
@@ -174,4 +177,67 @@
 #trans_list>li>p:last-child{
     background-color:var(--main_bg);
     color: red;
+}
+
+#trans_form{
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ z-index: 2;
+ background-color: rgba(255, 255, 255, 0.411);
+ display: none;
+ justify-content: center;
+ align-items: center;
+}
+#trans_form .form{
+    position: relative;
+    min-width: 300px;
+    padding: 20px 30px;
+    background-color: var(--main_bg);
+    border-radius: 10px;
+    padding: 10px;   
+}
+
+.slc{
+    padding: 10px;
+    margin: 10px;
+    background-color: var(--back_bg);
+    cursor: pointer;
+}
+.opt{
+    position: fixed;
+    width: 250px;
+    max-height: 200px;
+    margin: 0 10px;
+    background-color: var(--deep_bg);
+    border-radius: 10px;
+    overflow-y: scroll;
+}
+.opt_of{
+    display:none;
+}
+.opt::-webkit-scrollbar{
+    display: none;
+}
+.opt>p{
+    margin: 5px 10px;
+    cursor: pointer;
+}
+.btnu{
+    border: none;
+    border-radius: 20px;
+    float: right;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin: 0 5px;
+}
+#add_tran{
+    background-color: var(--theme_color);
+    color: #fff;
+}
+#cncl{
+    background-color: var(--back_bg);
+    color: var(--main_text);
 }

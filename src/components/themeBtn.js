@@ -6,13 +6,10 @@
         export default function (props){
             const dispatch = useDispatch();
             const theme = useSelector((state) => state.theme)
-            function setTheme(){
-          
-                const inc = document.getElementById("inc")
+            function setTheme(e){
                 const Root = document.querySelector(':root')
                 switch (theme) {
                   case "light":
-                    inc.classList.replace("lightmode","darkmode")
                     Root.style.setProperty("--main_bg","#131418")
                     Root.style.setProperty("--back_bg","#1c292e")
                     Root.style.setProperty("--main_text","#fff")
@@ -22,7 +19,6 @@
         
                     break;
                   case "dark":
-                    inc.classList.replace("darkmode","lightmode")
                     Root.style.setProperty("--main_bg","#fff")
                     Root.style.setProperty("--back_bg","#e7edef")
                     Root.style.setProperty("--main_text","#000")

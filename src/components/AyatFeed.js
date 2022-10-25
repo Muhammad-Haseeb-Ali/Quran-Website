@@ -13,7 +13,6 @@ function AyatFeed(props) {
     else{
       return(
         <>
-
         <div className="ayat" key={props.key}>
           <p className="ayat_no">{props.data.verse_key}</p>
           <h1 className="arabic_ayat">
@@ -34,6 +33,13 @@ function AyatFeed(props) {
               <samp style={{"font-size": localStorage.getItem("Eng-Ayat-Size")? `${localStorage.getItem("Eng-Ayat-Size")}px` : "30px"}}
               >{val.transliteration.text}{" "}</samp>
             ))}
+          </h1>
+          <h1 className="sub_heading">Transations :</h1>
+          {
+            props.data.translations.map((val,ind)=><h1>{val.text}</h1>)
+          }
+          <h1>
+            
           </h1>
           <hr />
           <div className="ayat_opt">
@@ -68,7 +74,6 @@ function AyatFeed(props) {
                 />
               </svg>
             </div>
-            <div></div>
             <div>
               <svg
                 width="24"

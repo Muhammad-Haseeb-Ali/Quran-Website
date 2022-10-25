@@ -37,11 +37,11 @@ function ReadMain() {
           loop[stage[1]].id
         }/verses?recitation=1&page=${stage[0]}&offset=${
           parseInt(loop[stage[1]].start) - 1
-        }`
+        }&translations=${JSON.parse(localStorage.getItem("translation"))}`
       )
         .then((res) => res.json())
         .catch((err) => err);
-      console.warn(result);
+      console.warn("result",result);
       if (result.pagination.total_pages >= stage[0] && loop[stage[1]].end >= result.verses[0].verse_number) {
         if (stage[0] === 1) {
           setData([

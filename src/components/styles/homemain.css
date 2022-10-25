@@ -73,7 +73,7 @@ background-color: var(--main_bg);
 }
 #sopt a{
     text-decoration: none;
-    color: var(--main_bg);
+    color: var(--main_text);
 }
 .short>p{
 padding: 5px;

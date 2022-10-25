@@ -1,4 +1,3 @@
-import { useAuth0 } from "@auth0/auth0-react";
 import { useNavigate } from "react-router-dom";
 
 
@@ -17,8 +16,6 @@ function Navbar() {
     }
   }
   const navigate = useNavigate();
-  const { user, isAuthenticated, isLoading, loginWithRedirect, logout } =
-    useAuth0();
   return (
     <nav>
       <ul>
@@ -44,14 +41,9 @@ function Navbar() {
           <li>
             <ThemeBtn type="nav" />
           </li>
-          { isAuthenticated === false &&
-            <li onClick={loginWithRedirect}>
+            {/* <li onClick={loginWithRedirect}>
               <img src="/user.png" alt="" />
-            </li>
-          }
-          <li onClick={() => logout({ returnTo: window.location.origin })}>
-            logout
-          </li>
+            </li> */}
           <li onClick={noti}>
             <img src="/noti.png" alt="" />
           </li>

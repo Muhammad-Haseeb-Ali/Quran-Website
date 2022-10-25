@@ -1,1 +1,1 @@
-GET https://api.quran.com/api/v4/chapters?language=en
+GET http://api.quran.com/api/v3/chapters/1/verses?recitation=1&translations[151,131,118]
