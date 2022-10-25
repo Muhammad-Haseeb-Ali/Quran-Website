@@ -12,9 +12,11 @@
         flex-flow: column-reverse;
         align-items: center;
     }
+    .body>div{
+        width: 100%;
+    }
     .body>div:first-child{
         height: 50px;
-        width: 100%;
     }
     .body>div:nth-child(2){
         height: calc(100% - 50px);
