@@ -32,7 +32,7 @@ backdrop-filter: blur(5.3px);
 .filter{
     background-color: var(--main_bg);
     border-radius: 10px;
-    margin-right: 10px;
+    margin: 0 10px;
     padding-right: 10px;
     overflow: hidden;
 }

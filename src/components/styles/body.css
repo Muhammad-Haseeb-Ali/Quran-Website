@@ -3,7 +3,7 @@
     height: calc(100% - 50px);
     display: flex;
     justify-content: space-between;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 .body>div{
     height: 100%;
