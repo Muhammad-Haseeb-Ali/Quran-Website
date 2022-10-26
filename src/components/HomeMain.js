@@ -1,7 +1,7 @@
 import "./styles/homemain.css";
 import JuzFeed from "./JuzFeed";
 import SurahFeed from "./SurahFeed";
-import { GrFormClose, GrFormSearch } from "react-icons/gr";
+import { GrFormNext, GrFormClose, GrFormSearch } from "react-icons/gr";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import { useState, useEffect, useRef } from "react";
 import {
@@ -32,11 +32,19 @@ function HomeMain() {
   function makeFilter() {
     ref.current.blur();
     changeSrchIcn(
+      <>
       <GrFormClose onClick={() => clearFilter()} className="icon sf" />
+      <GrFormClose onClick={() => clearFilter()} className="icon sf" id="mobile_srch_icn"/>
+      </>
     );
   }
   function clearFilter() {
-    changeSrchIcn(<GrFormSearch className="icon sf" />);
+    changeSrchIcn(
+      <>
+      <GrFormSearch className="icon sf" />
+      <GrFormNext className="icon sf" onClick={serchIcnClicked} id="mobile_srch_icn" />
+    </>
+    );
     filterparam.delete("filter");
     changeFilter(filterparam);
     ref.current.value = "";
@@ -46,7 +54,10 @@ function HomeMain() {
   const [view, changeView] = useState(["grid", "grid", "llist"]);
   const [icon, changeIcon] = useState([<FaAngleDown />, <FaAngleUp />]);
   const [srchIcn, changeSrchIcn] = useState(
+    <>
     <GrFormSearch className="icon sf" />
+    <GrFormSearch className="icon sf" onClick={serchIcnClicked} id="mobile_srch_icn" />
+  </>
   );
 
   const sopt_tog = () => {
@@ -54,8 +65,33 @@ function HomeMain() {
     changeIcon([icon[1], icon[0]]);
   };
 
-  useEffect(() => {}, []);
+  function serchIcnClicked(){
+    const hasWindow = typeof window !== 'undefined';
+    const width = hasWindow ? window.innerWidth : null;
+    if(width <= 520){
+      const filterIn = document.getElementById("filter_in")
+      const shortBy = document.getElementById("short_by")
 
+      if(filterIn.style.display == "block"){
+        changeSrchIcn(
+          <>
+          <GrFormSearch onClick={serchIcnClicked} className="icon sf" id="mobile_srch_icn" />
+          </>
+        );
+      }
+      else{
+        changeSrchIcn(
+          <>
+          <GrFormNext onClick={serchIcnClicked} className="icon sf" id="mobile_srch_icn" />
+          </>
+        );
+      }
+
+      filterIn.style.display = filterIn.style.display == "block" ? "none" : "block" ;
+      shortBy.style.display = shortBy.style.display == "none" ? "block" : "none";
+
+    }
+  }
   return (
     <div className="main">
       <div id="options">
@@ -74,7 +110,7 @@ function HomeMain() {
           />
         </div>
         <div>
-          <div className="short">
+          <div className="short" id="short_by">
             <p>
               Short by{" "}
               <samp onClick={sopt_tog}>
@@ -106,6 +142,7 @@ function HomeMain() {
               value={filter}
               maxLength={20}
               ref={ref}
+              id='filter_in'
             />
             {srchIcn}
           </div>

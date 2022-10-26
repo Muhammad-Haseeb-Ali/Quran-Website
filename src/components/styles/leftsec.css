@@ -21,7 +21,7 @@
     border-radius: 10px;
 }
 .left svg>path{
-    fill: #2C3E50;
+    fill: var(--icons_color);
 }
 .left .active>svg>path{
     fill: var(--theme_color);

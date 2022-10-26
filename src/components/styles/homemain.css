@@ -44,6 +44,7 @@ backdrop-filter: blur(5.3px);
 border: none;
 margin-left: 10px;
 background-color: var(--main_bg);
+color: var(--main_text);
 }
 .filter>input:focus{
     outline: none;
@@ -53,6 +54,9 @@ background-color: var(--main_bg);
 }
 .filter>.sf{
     cursor: pointer;
+}
+#mobile_srch_icn{
+    display: none;
 }
 .short>*{
     border-radius: 10px;
@@ -144,6 +148,9 @@ color: #7c7c7c;
     border-radius: 20px;
     background-color: var(--back_bg);
 }
+.f_top{
+    margin-bottom: 8px;
+}
 .para_scroll{
     width: 100%;
     height: 200px;
@@ -164,17 +171,10 @@ color: #7c7c7c;
     font-size: 10px;
 }
 #likeSVG{
-    position: relative;
     cursor: pointer;
-    visibility: hidden;
 }
-#likeSVG::after{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    content: url("../../../public/like.svg");
-    visibility: visible;
+#likeSVG>path{
+    fill: var(--icons_color);
 }
 @media only screen and (max-width: 1200px){
     .grid{grid-template-columns: auto auto auto auto;}
@@ -192,7 +192,7 @@ color: #7c7c7c;
         display: block;
     }
 }
-@media only screen and (max-width: 510px){
+@media only screen and (max-width: 520px){
     .grid{grid-template-columns: auto;}
     .filter>input{
         display: none;
@@ -203,5 +203,11 @@ color: #7c7c7c;
     }
     .para_scroll{
         height: auto;   
+    }
+    .filter>.sf{
+        display: none;
+    }
+    #mobile_srch_icn{
+        display: block;
     }
 }

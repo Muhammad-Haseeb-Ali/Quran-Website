@@ -40,6 +40,9 @@ backdrop-filter: blur(5.3px);
     margin:2px 5px;
     cursor: pointer;
 }
+.contant_top_nav svg>path{
+    fill: var(--icons_color);
+}
 .contant_info_header{
     width: 100%;
     background-color: var(--theme_color);
@@ -143,7 +146,9 @@ backdrop-filter: blur(5.3px);
     margin-right: 5px;
     cursor: pointer;
 }
-
+.ayat_opt svg>path{
+    fill: var(--icons_color);
+}
 #loading_arabic_ayat{
     height: 50px;
     margin-bottom: 20px;
