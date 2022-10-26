@@ -34,7 +34,6 @@
             
              function getTheme(){
                 if(localStorage.getItem("theme")){
-                  dispatch({type:SET_THEME,theme:localStorage.getItem("theme")})
                   setTheme(localStorage.getItem("theme"))                  
                 }
 
