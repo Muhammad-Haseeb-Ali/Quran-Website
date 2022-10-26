@@ -6,7 +6,10 @@ function AudioMain() {
   function setVol() {}
   return (
     <div className="main" id="audio_main">
-      <div className="player">
+      <img src="/development.svg" width="300px" />
+      <br/>
+      <h1>This Section is under Development</h1>
+      {/* <div className="player">
         <div className="player_banner">
           <img className="bg" src="/quran.jpg" />
           <h1 className="top_name surah_info">
@@ -133,7 +136,9 @@ function AudioMain() {
           </div>
           </div>
           
-      </div>
+      </div> */}
+
+
     </div>
   );
 }
