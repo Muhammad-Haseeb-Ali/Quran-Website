@@ -34,7 +34,7 @@
             
              function getTheme(){
                 if(localStorage.getItem("theme")){
-                  setTheme(localStorage.getItem("theme"))                  
+                  setTheme(localStorage.getItem("theme")=="dark"? "light" : "dark")                  
                 }
 
              }
