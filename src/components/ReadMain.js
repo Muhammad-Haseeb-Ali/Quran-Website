@@ -13,6 +13,9 @@ function ReadMain() {
   const { short, id } = useParams();
   const storeData = useSelector((state) => state.mataData.data);
   useEffect(() => {
+    if(!localStorage.getItem("translation")){
+      localStorage.setItem("translation",JSON.stringify([]))
+    }
     async function makeLoop() {
       if (short === "juz") {
         var objs = [];
@@ -37,7 +40,7 @@ function ReadMain() {
           loop[stage[1]].id
         }/verses?recitation=1&page=${stage[0]}&offset=${
           parseInt(loop[stage[1]].start) - 1
-        }${JSON.parse(localStorage.getItem("translation")).length > 0 ? `&translations=${JSON.parse(localStorage.getItem("translation"))}` : ''}`
+        }${localStorage.getItem("translation") ? `&translations=${JSON.parse(localStorage.getItem("translation"))}` : ''}`
       )
         .then((res) => res.json())
         .catch((err) => err);
