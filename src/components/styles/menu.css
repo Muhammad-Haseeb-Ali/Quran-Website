@@ -16,9 +16,10 @@
 .menu_list>.back{
     position: absolute;
     top: 10px;
-    left: 10px;
+    right: 10px;
     cursor: pointer;
     z-index: 1;
+    transform: rotate(180deg);
 }
 .menu_list>ul{
     position: relative;
@@ -58,7 +59,7 @@
     font-weight: bolder;
 }
 
-#menu>div:last-child{
+#menu>div:first-child{
             /* From https://css.glass */
 background: rgba(255, 255, 255, 0.13);
 box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);

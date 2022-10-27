@@ -173,8 +173,11 @@ color: #7c7c7c;
 #likeSVG{
     cursor: pointer;
 }
-#likeSVG>path{
-    fill: var(--icons_color);
+.unlikedSVGbtn{
+    fill: #2C3E50;
+}
+.likedSVGbtn{
+   fill: var(--theme_color); 
 }
 @media only screen and (max-width: 1200px){
     .grid{grid-template-columns: auto auto auto auto;}
@@ -209,5 +212,8 @@ color: #7c7c7c;
     }
     #mobile_srch_icn{
         display: block;
+    }
+    .filter input{
+        width: 100px;
     }
 }

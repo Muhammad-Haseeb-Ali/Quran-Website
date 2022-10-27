@@ -5,7 +5,6 @@ import { GrFormNext, GrFormClose, GrFormSearch } from "react-icons/gr";
 import { FaAngleDown, FaAngleUp } from "react-icons/fa";
 import { useState, useEffect, useRef } from "react";
 import {
-  Navigate,
   NavLink,
   useNavigate,
   useParams,
@@ -18,6 +17,26 @@ function HomeMain() {
   const [filterparam, changeFilter] = useSearchParams();
   const ref = useRef(null);
   const navigator = useNavigate();
+
+  function feedClicked(e,go,address){
+    if(e.target.id == "likeSVG" || e.target.id == "likeSVGbtn")
+    {
+      if(!localStorage.getItem(address))
+      {localStorage.setItem(address,'[]')}
+      localStorage.setItem(
+        address,
+        JSON.parse(localStorage.getItem(address)).find(e=>e==go)?
+        JSON.stringify(JSON.parse(localStorage.getItem(address)).filter(e=>e!=go))
+        :
+        JSON.stringify([...JSON.parse(localStorage.getItem(address)),go])
+        )
+        document.getElementById(`${address}${go}`).classList.toggle("likedSVGbtn")
+        document.getElementById(`${address}${go}`).classList.toggle("unlikedSVGbtn")
+        console.warn(e)
+    }
+    else{navigator(JSON.stringify(go))}
+  }
+
   var filter;
   if (shortparam !== "surah" && shortparam !== "juz") {
     navigator("/not_found");
@@ -159,6 +178,7 @@ function HomeMain() {
                       key={i}
                       view={view[0]}
                       short={shortparam}
+                      open={feedClicked}
                     />
                   ))
               : APIdata.data[0].map((value, i) => (
@@ -167,6 +187,7 @@ function HomeMain() {
                     key={i}
                     view={view[0]}
                     short={shortparam}
+                    open={feedClicked}
                   />
                 ))
             : filterparam.get("filter")
@@ -178,6 +199,7 @@ function HomeMain() {
                     key={i}
                     view={view[0]}
                     short={shortparam}
+                    open={feedClicked}
                   />
                 ))
             : APIdata.data[1].map((value, i) => (
@@ -186,6 +208,7 @@ function HomeMain() {
                   key={i}
                   view={view[0]}
                   short={shortparam}
+                  open={feedClicked}
                 />
               ))
           : null}

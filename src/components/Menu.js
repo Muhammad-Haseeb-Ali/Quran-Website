@@ -6,6 +6,7 @@ function Menu() {
   }
   return (
     <div id="menu">
+            <div onClick={backMenu}></div>
       <div className="menu_list">
         <div onClick={backMenu} className="back">
           <svg
@@ -38,7 +39,6 @@ function Menu() {
           <li>Reset</li>
         </ul>
       </div>
-      <div onClick={backMenu}></div>
     </div>
   );
 }

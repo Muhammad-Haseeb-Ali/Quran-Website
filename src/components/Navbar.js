@@ -20,13 +20,6 @@ function Navbar() {
     <nav>
       <ul>
         <ol>
-          <li
-            onClick={() => {
-              document.getElementById("menu").style.display = "grid";
-            }}
-          >
-            <img src="/menu.png" alt="" />
-          </li>
           <li onClick={() => navigate("./")}>
             <img src="/logo.png" alt="" width={"50px"} height={"50px"} />
           </li>
@@ -36,9 +29,6 @@ function Navbar() {
         </ol>
         <ol>
           <li>
-            <img src="/lang.png" alt="" />
-          </li>
-          <li>
             <ThemeBtn type="nav" />
           </li>
             {/* <li onClick={loginWithRedirect}>
@@ -46,6 +36,13 @@ function Navbar() {
             </li> */}
           <li onClick={noti}>
             <img src="/noti.png" alt="" />
+          </li>
+          <li
+            onClick={() => {
+              document.getElementById("menu").style.display = "grid";
+            }}
+          >
+            <img src="/menu.png" alt="" />
           </li>
         </ol>
       </ul>

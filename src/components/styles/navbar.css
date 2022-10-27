@@ -2,6 +2,7 @@ nav{
     position: relative;
     width: 100%;
     height: 50px;
+    padding: 0 5px;
 }
 nav >ul, nav>ul>ol{
     list-style: none;
@@ -19,7 +20,7 @@ nav ul>ol:last-child>li{
     margin: 0 10px;
 }
 nav ul>ol>li:first-child{
-    margin: 0 13px;
+    margin-right:13px;
 }
 #noti_box{
     position: absolute;
