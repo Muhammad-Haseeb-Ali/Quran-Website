@@ -4,6 +4,7 @@
     background-color: var(--back_bg);
     margin: 5px 10px;
     padding: 10px;
+    padding-bottom: 10vh;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     overflow-x: hidden;
