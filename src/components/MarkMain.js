@@ -1,8 +1,14 @@
-function MarkMain(){
-    return(
-     <div className="main">
-        MarkMain
+import "./styles/audiomain.css";
+
+function MarkMain() {
+  return (
+    <div className="main" id="audio_main">
+      <img src="/development.svg" width="300px" />
+      <br/>
+      <h1>This Section is under Development</h1>
     </div>
-    )
+  );
 }
+
+
 export default MarkMain
