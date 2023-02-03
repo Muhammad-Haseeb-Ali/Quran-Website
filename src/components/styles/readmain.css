@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Naskh+Arabic&family=Roboto:wght@100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amiri+Quran&display=swap');
 
 #read_main::-webkit-scrollbar{
     display: none;
@@ -95,7 +96,7 @@ backdrop-filter: blur(5.3px);
 }
 .arabic_ayat>samp{
     position: relative;
-    font-family: 'Noto Naskh Arabic', serif;
+    font-family: 'Amiri Quran', serif;
     cursor: pointer;
     color: var(--main_text);
 }
