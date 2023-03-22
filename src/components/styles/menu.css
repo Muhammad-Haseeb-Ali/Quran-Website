@@ -40,7 +40,7 @@
 }
 .menu_list>ul a{
     text-decoration: none;
-    color: var(--main_bg);
+    color: var(--main_text);
 }
 .menu_list>ul>li:first-child{
     margin-bottom: 10px;

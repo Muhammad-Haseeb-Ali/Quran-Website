@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { NavLink } from "react-router-dom";
 import "./styles/menu.css";
 function Menu() {
   function backMenu () {
@@ -28,15 +28,20 @@ function Menu() {
         <ul>
           <li>Menu</li>
           <li>
-            <a href="#target">Theme</a>
+            <NavLink to="/home" onClick={backMenu}>Home (Surahs&juzs)</NavLink>
           </li>
           <li>
-            <a href="#target">Font</a>
+            <NavLink to="/like" onClick={backMenu}>Most Favorites</NavLink>
           </li>
           <li>
-            <a href="#target">Audio</a>
+          <NavLink to="/mark" onClick={backMenu}>Your Bookmarks</NavLink>
           </li>
-          <li>Reset</li>
+          <li>
+          <NavLink to="/recitation" onClick={backMenu}>Audio Recitations</NavLink>
+          </li>
+          <li>
+          <NavLink to="/setting" onClick={backMenu}>Setting</NavLink>
+          </li>
         </ul>
       </div>
     </div>
