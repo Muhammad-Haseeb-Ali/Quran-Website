@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import  AyatMarker  from "./AyatMarker";
 function ReadMain() {
   const navigator = useNavigate()
   const [data, setData] = useState([]);
@@ -13,8 +14,8 @@ function ReadMain() {
   const { short, id } = useParams();
   const storeData = useSelector((state) => state.mataData.data);
   useEffect(() => {
-    if(!localStorage.getItem("translation")){
-      localStorage.setItem("translation",JSON.stringify([]))
+    if (!localStorage.getItem("translation")) {
+      localStorage.setItem("translation", JSON.stringify([]))
     }
     async function makeLoop() {
       if (short === "juz") {
@@ -30,21 +31,20 @@ function ReadMain() {
         setLoop(objs);
       }
       if (short === "surah") {
-        setLoop([{ id, start: 1, end:storeData[0][id - 1].verses_count
+        setLoop([{
+          id, start: 1, end: storeData[0][id - 1].verses_count
         }]);
       }
     }
     async function dataFetching() {
       const result = await fetch(
-        `http://api.quran.com/api/v3/chapters/${
-          loop[stage[1]].id
-        }/verses?recitation=1&page=${stage[0]}&offset=${
-          parseInt(loop[stage[1]].start) - 1
+        `http://api.quran.com/api/v3/chapters/${loop[stage[1]].id
+        }/verses?recitation=1&page=${stage[0]}&offset=${parseInt(loop[stage[1]].start) - 1
         }${localStorage.getItem("translation") ? `&translations=${JSON.parse(localStorage.getItem("translation"))}` : ''}`
       )
         .then((res) => res.json())
         .catch((err) => err);
-      console.warn("result",result);
+      console.warn("result", result);
       if (result.pagination.total_pages >= stage[0] && loop[stage[1]].end >= result.verses[0].verse_number) {
         if (stage[0] === 1) {
           setData([
@@ -111,6 +111,7 @@ function ReadMain() {
     output.innerHTML = slider.value;
   }
 
+
   return (
     <div onScroll={onScrolling} className="main" id="read_main">
       <div className="contant_top_nav">
@@ -120,7 +121,7 @@ function ReadMain() {
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          onClick={()=>{navigator(-1)}}
+          onClick={() => { navigator(-1) }}
         >
           <path
             fill-rule="evenodd"
@@ -130,18 +131,6 @@ function ReadMain() {
           />
         </svg>
         <div>
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill-rule="evenodd"
-              clip-rule="evenodd"
-              d="M19.4255 5.6081C21.5255 7.62057 21.5248 10.8835 19.4239 12.8952L12.0001 20L4.57617 12.8952C2.47532 10.8835 2.47462 7.62056 4.57461 5.60809C6.39411 3.78856 8.74199 3.91193 10.9582 5.90877C11.3096 6.22546 11.6578 6.58928 12 6.99994C12.3422 6.58928 12.6904 6.22547 13.0419 5.90877C15.2581 3.91194 17.606 3.78856 19.4255 5.6081ZM12.0001 17.9238L18.3865 11.8118C19.8708 10.3905 19.8712 8.11285 18.3876 6.69109L18.3761 6.68004L18.3648 6.66875C17.6197 5.92357 16.8736 5.72658 16.1322 5.86353C15.3151 6.01444 14.2701 6.61886 13.1524 7.96022L12 9.34302L10.8477 7.96022C9.72989 6.61886 8.68494 6.01443 7.8679 5.86353C7.12644 5.72658 6.38045 5.92356 5.63528 6.66874L5.62399 6.68003L5.61246 6.69108C4.12896 8.11275 4.12932 10.3902 5.61328 11.8115C5.61338 11.8116 5.61348 11.8117 5.61358 11.8118L12.0001 17.9238Z"
-            />
-          </svg>
           <svg
             width="24"
             height="24"
@@ -157,6 +146,7 @@ function ReadMain() {
           </svg>
         </div>
       </div>
+      <AyatMarker/>
       {data.length > 0 &&
         data.map((val, ind) => (
           <AyatFeed data={val} key={ind} wordAudio={wordAudio} />

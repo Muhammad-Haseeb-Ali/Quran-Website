@@ -31,7 +31,6 @@ function HomeMain() {
         JSON.stringify([...JSON.parse(localStorage.getItem(address)),go])
         )
         document.getElementById(`${address}${go}`).classList.toggle("likedSVGbtn")
-        document.getElementById(`${address}${go}`).classList.toggle("unlikedSVGbtn")
         console.warn(e)
     }
     else{navigator(JSON.stringify(go))}

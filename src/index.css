@@ -29,8 +29,12 @@ hr{
     --anti_theme:#c2f3e6;
     --icons_color:#2C3E50;
 }
-
-
+.backSVG{
+    cursor: pointer;
+    color: var(--icons_color);
+    height: 24px;
+    width: 24px;
+}
 
 /* 
     --theme_color:#029b7f;

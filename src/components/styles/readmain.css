@@ -93,6 +93,7 @@ backdrop-filter: blur(5.3px);
     margin: 15px 0;
     padding-left: 50px;
     margin-top: 30px;
+    line-height: 220%;
 }
 .arabic_ayat>samp{
     position: relative;
@@ -105,7 +106,7 @@ backdrop-filter: blur(5.3px);
 }
 .arabic_ayat>samp::after{
     position: absolute;
-    left: 50%;
+    right: -100%;
     bottom: 100%;
     background-color: var(--theme_color);
     color: var(--main_bg);
@@ -113,7 +114,9 @@ backdrop-filter: blur(5.3px);
     text-align: center;
     content: attr(means);
     display: none;
-    font-size: small;
+    font-size: 0.8rem;
+    line-height: 30px;
+    letter-spacing: 2px;
     padding: 5px 10px;
     border-radius: 10px;
 }
@@ -147,8 +150,11 @@ backdrop-filter: blur(5.3px);
     margin-right: 5px;
     cursor: pointer;
 }
-.ayat_opt svg>path{
+.ayat_opt svg>path:not(.likedSVGbtn){
     fill: var(--icons_color);
+}
+.likedSVGbtn{
+   fill: var(--theme_color); 
 }
 #loading_arabic_ayat{
     height: 50px;
@@ -251,4 +257,10 @@ backdrop-filter: blur(5.3px);
     background: var(--theme_color); /* Green background */
     cursor: pointer; /* Cursor on hover */
     border-radius: 10px;
+  }
+  .markmap{
+    width: 100%;
+    background-color: var(--anti_theme);
+    padding: 20px;
+    border-radius: 20px;
   }

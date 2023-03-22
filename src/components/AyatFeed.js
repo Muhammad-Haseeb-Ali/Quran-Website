@@ -1,18 +1,43 @@
 import IntroTop from "./IntroTop";
 function AyatFeed(props) {
-    if(props.data.first){
-      return(
-      <IntroTop
-      id={props.data.no}
-      name={props.data.simple_name}
-      mean={props.data.meaning}
-      verses={props.data.verses}
-      bis={props.data.bis}
-    />)
+
+
+  function likeANDmark(e, address, ayatNo, surahNo) {
+
+    if (ayatNo == null || surahNo == null) return
+    document.getElementById(`${address}${surahNo}:${ayatNo}`).classList.toggle("likedSVGbtn")
+    document.getElementById(`${address}${surahNo}:${ayatNo}`).classList.toggle("unlikedSVGbtn")
+    if (address == "likedAyat" || (address == "markFor" && !document.getElementById(`${address}${surahNo}:${ayatNo}`).classList.contains('unlikedSVGbtn'))) {
+      if(address == "markFor")
+      document.getElementById("ayatMarker").style.display = "block";
+      if (!localStorage.getItem(address))
+        localStorage.setItem(address, '[]')
+      localStorage.setItem(
+        address,
+        JSON.parse(localStorage.getItem(address)).find(e => (e.surahNo == surahNo && e.ayatNo == ayatNo)) ?
+          JSON.stringify(JSON.parse(localStorage.getItem(address)).filter(e => !(e.surahNo == surahNo && e.ayatNo == ayatNo)))
+          :
+          JSON.stringify([...JSON.parse(localStorage.getItem(address)), { surahNo, ayatNo }])
+      )
+      return;
     }
-    else{
-      return(
-        <>
+    localStorage.setItem("markedAyat",JSON.stringify([...JSON.parse(localStorage.getItem('markedAyat')).filter(e=>(e.surahNo!=surahNo && e.ayatNo!=ayatNo))]))
+  }
+
+
+
+  if (props.data.first) {
+    return (
+      <IntroTop
+        id={props.data.no}
+        name={props.data.simple_name}
+        mean={props.data.meaning}
+        verses={props.data.verses}
+        bis={props.data.bis}
+      />)
+  }
+  else {
+    return (
         <div className="ayat" key={props.key}>
           <p className="ayat_no">{props.data.verse_key}</p>
           <h1 className="arabic_ayat">
@@ -20,8 +45,8 @@ function AyatFeed(props) {
               <samp
                 onClick={props.wordAudio}
                 audio={val.audio.url}
-                means={val.translation.text}
-                style={{"font-size": localStorage.getItem("Ayat-Size")? `${localStorage.getItem("Ayat-Size")}px` : "30px"}}
+                means={val.translation.text.replace(/ /g, "_")}
+                style={{ "font-size": localStorage.getItem("Ayat-Size") ? `${localStorage.getItem("Ayat-Size")}px` : "30px" }}
               >
                 {val.text_madani}{" "}
               </samp>
@@ -30,7 +55,7 @@ function AyatFeed(props) {
           <h1 className="sub_heading">Transliteration :</h1>
           <h1 className="eng_ayat">
             {props.data.words.map((val, ind) => (
-              <samp style={{"font-size": localStorage.getItem("Eng-Ayat-Size")? `${localStorage.getItem("Eng-Ayat-Size")}px` : "30px"}}
+              <samp style={{ "font-size": localStorage.getItem("Eng-Ayat-Size") ? `${localStorage.getItem("Eng-Ayat-Size")}px` : "30px" }}
               >{val.transliteration.text}{" "}</samp>
             ))}
           </h1>
@@ -39,22 +64,13 @@ function AyatFeed(props) {
             props.data.translations.map((val,ind)=><h1>{val.text}</h1>)
           } */}
           <h1>
-            
+
           </h1>
           <hr />
           <div className="ayat_opt">
             <div>
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fill-rule="evenodd"
-                  clip-rule="evenodd"
-                  d="M19.4255 5.6081C21.5255 7.62057 21.5248 10.8835 19.4239 12.8952L12.0001 20L4.57617 12.8952C2.47532 10.8835 2.47462 7.62056 4.57461 5.60809C6.39411 3.78856 8.74199 3.91193 10.9582 5.90877C11.3096 6.22546 11.6578 6.58928 12 6.99994C12.3422 6.58928 12.6904 6.22547 13.0419 5.90877C15.2581 3.91194 17.606 3.78856 19.4255 5.6081ZM12.0001 17.9238L18.3865 11.8118C19.8708 10.3905 19.8712 8.11285 18.3876 6.69109L18.3761 6.68004L18.3648 6.66875C17.6197 5.92357 16.8736 5.72658 16.1322 5.86353C15.3151 6.01444 14.2701 6.61886 13.1524 7.96022L12 9.34302L10.8477 7.96022C9.72989 6.61886 8.68494 6.01443 7.8679 5.86353C7.12644 5.72658 6.38045 5.92356 5.63528 6.66874L5.62399 6.68003L5.61246 6.69108C4.12896 8.11275 4.12932 10.3902 5.61328 11.8115C5.61338 11.8116 5.61348 11.8117 5.61358 11.8118L12.0001 17.9238Z"
-                />
+              <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" onClick={e => likeANDmark(e, 'likedAyat', props.data.verse_key.split(":")[1], props.data.verse_key.split(":")[0])}>
+                <path id={'likedAyat' + props.data.verse_key} className={(localStorage.getItem("likedAyat") && JSON.parse(localStorage.getItem("likedAyat")).find(e => (e.surahNo == props.data.verse_key.split(":")[0] && e.ayatNo == props.data.verse_key.split(":")[1]))) ? "likedSVGbtn" : ''} fill-rule="evenodd" clip-rule="evenodd" d="M19.4255 5.6081C21.5255 7.62057 21.5248 10.8835 19.4239 12.8952L12.0001 20L4.57617 12.8952C2.47532 10.8835 2.47462 7.62056 4.57461 5.60809C6.39411 3.78856 8.74199 3.91193 10.9582 5.90877C11.3096 6.22546 11.6578 6.58928 12 6.99994C12.3422 6.58928 12.6904 6.22547 13.0419 5.90877C15.2581 3.91194 17.606 3.78856 19.4255 5.6081ZM12.0001 17.9238L18.3865 11.8118C19.8708 10.3905 19.8712 8.11285 18.3876 6.69109L18.3761 6.68004L18.3648 6.66875C17.6197 5.92357 16.8736 5.72658 16.1322 5.86353C15.3151 6.01444 14.2701 6.61886 13.1524 7.96022L12 9.34302L10.8477 7.96022C9.72989 6.61886 8.68494 6.01443 7.8679 5.86353C7.12644 5.72658 6.38045 5.92356 5.63528 6.66874L5.62399 6.68003L5.61246 6.69108C4.12896 8.11275 4.12932 10.3902 5.61328 11.8115C5.61338 11.8116 5.61348 11.8117 5.61358 11.8118L12.0001 17.9238Z" />
               </svg>
             </div>
             <div>
@@ -64,8 +80,11 @@ function AyatFeed(props) {
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                onClick={e => likeANDmark(e, 'markFor', props.data.verse_key.split(":")[1], props.data.verse_key.split(":")[0])}
               >
                 <path
+                  id={'markFor' + props.data.verse_key}
+                  className={(localStorage.getItem("markedAyat") && JSON.parse(localStorage.getItem("markedAyat")).find(e => (e.surahNo == props.data.verse_key.split(":")[0] && e.ayatNo == props.data.verse_key.split(":")[1]))) ? "likedSVGbtn" : 'unlikedSVGbtn'}
                   fill-rule="evenodd"
                   clip-rule="evenodd"
                   d="M5.24998 4.5C5.24998 3.67157 5.92155 3 6.74998 3H17.25C18.0784 3 18.75 3.67157 18.75 4.5V19.4838C18.75 20.8422 17.0887 21.501 16.1577 20.5119L12 16.0943L7.84228 20.5119C6.9113 21.501 5.24998 20.8422 5.24998 19.4838V4.5ZM17.25 4.5L6.74998 4.5V19.4838L10.9077 15.0663C11.4999 14.437 12.5 14.437 13.0923 15.0663L17.25 19.4838V4.5Z"
@@ -108,7 +127,7 @@ function AyatFeed(props) {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
                 onClick={props.wordAudio}
-                audio={props.data.audio.url}
+                audio={props.data.audio ? props.data.audio.url : ""}
               >
                 <path
                   fill-rule="evenodd"
@@ -118,10 +137,16 @@ function AyatFeed(props) {
               </svg>
             </div>
           </div>
+          {
+            (props.title && props.note) &&
+            <div className="markmap">
+            <h4>{props.title}</h4>
+            <p>{props.note}</p>
+            </div>
+          }
         </div>
-      </>
-      )
-    }
+    )
+  }
 
 }
 export default AyatFeed;

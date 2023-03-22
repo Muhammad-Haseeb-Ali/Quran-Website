@@ -1,1 +1,29 @@
- 
+#like_main #options{
+    display: flex;
+    flex-flow: row;
+    justify-content:space-between;
+    align-items: center;
+}
+#like_main #options>ul{
+    padding: 3px;
+    border-radius: 20px;
+    background-color: var(--main_bg);
+    list-style: none;
+}
+#like_main #options>ul>li{
+    width: 100px;
+    float: left;
+    text-align: center;
+    padding: 3px 0;
+    margin: 0 3px;
+    border-radius: 30px;
+    cursor: pointer;
+}
+#like_main #options>ul>.active{
+    background-color: var(--theme_color);
+    color: var(--main_bg);
+}
+#like_main #options>ul>li:hover:not(.active){
+    background-color: var(--anti_theme);
+    color: var(--theme_color);
+}
