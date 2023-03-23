@@ -123,7 +123,7 @@ function LikeMain() {
         </ul>
       </div>
       {
-        (likedData.surah || likedData.para || likedData.ayat) ?
+        (likedData && (likedData.surah || likedData.para || likedData.ayat)) ?
           <RenderdLikeData point={key} />
           : null
       }
