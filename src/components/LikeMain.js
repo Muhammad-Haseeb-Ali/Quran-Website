@@ -15,6 +15,8 @@ function LikeMain() {
   const APIdata = useSelector((state) => state.mataData);
   useEffect(() => {
     if(!localStorage.getItem('likedAyat')) localStorage.setItem('likedAyat','[]')
+    if(!localStorage.getItem('likedaSurah')) localStorage.setItem('likedaSurah','[]')
+    if(!localStorage.getItem('likedJuz')) localStorage.setItem('likedJuz','[]')
     const likedAyat = JSON.parse(localStorage.getItem('likedAyat'));
     var ayatDATA = []
     for (var o of likedAyat) {
