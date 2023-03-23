@@ -6,7 +6,6 @@ function AyatFeed(props) {
 
     if (ayatNo == null || surahNo == null) return
     document.getElementById(`${address}${surahNo}:${ayatNo}`).classList.toggle("likedSVGbtn")
-    document.getElementById(`${address}${surahNo}:${ayatNo}`).classList.toggle("unlikedSVGbtn")
     if (address == "likedAyat" || (address == "markFor" && !document.getElementById(`${address}${surahNo}:${ayatNo}`).classList.contains('unlikedSVGbtn'))) {
       if(address == "markFor")
       document.getElementById("ayatMarker").style.display = "flex";

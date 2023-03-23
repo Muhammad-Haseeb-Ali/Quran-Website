@@ -156,6 +156,9 @@ backdrop-filter: blur(5.3px);
 .likedSVGbtn{
    fill: var(--theme_color); 
 }
+.unlikedSVGbtn{
+    fill: var(--main_text);
+}
 #loading_arabic_ayat{
     height: 50px;
     margin-bottom: 20px;

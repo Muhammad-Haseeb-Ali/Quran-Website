@@ -25,14 +25,14 @@ function LikeMain() {
       .then(res=>res.json())
       .then(data=>{
         ayatDATA = [...ayatDATA,data]
-        if(likedAyat.length == ayatDATA.length){
-          setLikedData({
-            surah: [...JSON.parse(localStorage.getItem("likedSurah"))],
-            juz: [...JSON.parse(localStorage.getItem("likedJuz"))],
-            ayat:[...ayatDATA]
-          })
-        }
       })
+      .then(()=>{
+        if(likedAyat.length == ayatDATA.length)   
+        setLikedData({
+        surah: [...JSON.parse(localStorage.getItem("likedSurah"))],
+        juz: [...JSON.parse(localStorage.getItem("likedJuz"))],
+        ayat:[...ayatDATA]
+      })})
     }
 
   }, [])
