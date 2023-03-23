@@ -5,6 +5,7 @@ export default function MarkedAyat(props) {
     const [ayatDATA, putAyatDATA] = useState([])
 
     useEffect(() => {
+        if(!localStorage.getItem('markedAyat')) localStorage.setItem('markedAyat','[]')
         const markedAyat = JSON.parse(localStorage.getItem('markedAyat'));
         var data = []
         for (var o of markedAyat) {
