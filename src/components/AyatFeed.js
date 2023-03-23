@@ -9,7 +9,7 @@ function AyatFeed(props) {
     document.getElementById(`${address}${surahNo}:${ayatNo}`).classList.toggle("unlikedSVGbtn")
     if (address == "likedAyat" || (address == "markFor" && !document.getElementById(`${address}${surahNo}:${ayatNo}`).classList.contains('unlikedSVGbtn'))) {
       if(address == "markFor")
-      document.getElementById("ayatMarker").style.display = "block";
+      document.getElementById("ayatMarker").style.display = "flex";
       if (!localStorage.getItem(address))
         localStorage.setItem(address, '[]')
       localStorage.setItem(

@@ -1,5 +1,6 @@
 import "./styles/likemain.css";
 import { IoArrowBackCircle } from "react-icons/io5"
+import {AiOutlineArrowDown} from 'react-icons/ai'
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import JuzFeed from "./JuzFeed";
@@ -92,9 +93,12 @@ function LikeMain() {
       }
   }
 
-  function changePoint(e) {
+  function changePoint(e,close) {
     const target = e.target.innerHTML.toLowerCase()
     changeKey(target)
+    if(close){
+      document.getElementById('ddpoints').style.display = 'none';
+    }
   }
 
   return (
@@ -107,9 +111,15 @@ function LikeMain() {
           }}
         />
         <ul>
+        <ol id="ddpoints">
+          <li className={key == "surah" ? 'active' : ''} onClick={(e)=>changePoint(e,true)}>Surah</li>
+          <li className={key == "juz" ? 'active' : ''} onClick={(e)=>changePoint(e,true)}>Juz</li>
+          <li className={key == "ayat" ? 'active' : ''} onClick={(e)=>changePoint(e,true)}>Ayat</li>
+          </ol>
           <li className={key == "surah" ? 'active' : ''} onClick={changePoint}>Surah</li>
           <li className={key == "juz" ? 'active' : ''} onClick={changePoint}>Juz</li>
           <li className={key == "ayat" ? 'active' : ''} onClick={changePoint}>Ayat</li>
+          <li onClick={()=>{document.getElementById('ddpoints').style.display='block'}}><AiOutlineArrowDown/></li>
         </ul>
       </div>
       {

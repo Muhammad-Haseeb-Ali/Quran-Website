@@ -5,6 +5,7 @@
     align-items: center;
 }
 #like_main #options>ul{
+    position: relative;
     padding: 3px;
     border-radius: 20px;
     background-color: var(--main_bg);
@@ -27,3 +28,24 @@
     background-color: var(--anti_theme);
     color: var(--theme_color);
 }
+#like_main #options>ul>li:last-child{
+    width: 20px;
+    display: none;
+}
+#like_main #options>ul>ol{
+    position: absolute;
+    right: 0;
+    top: 120%;
+    list-style: none;
+    padding: 15px;
+    background-color: var(--main_bg);
+    border-radius: 20px;
+}
+@media only screen and (max-width: 510px){
+    #like_main #options>ul>li:not(.active){
+        display: none;
+    }
+    #like_main #options>ul>li:last-child{
+        display: block;
+    }
+    }

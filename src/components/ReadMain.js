@@ -114,6 +114,7 @@ function ReadMain() {
 
   return (
     <div onScroll={onScrolling} className="main" id="read_main">
+          <AyatMarker/>
       <div className="contant_top_nav">
         <svg
           width="24"
@@ -146,7 +147,6 @@ function ReadMain() {
           </svg>
         </div>
       </div>
-      <AyatMarker/>
       {data.length > 0 &&
         data.map((val, ind) => (
           <AyatFeed data={val} key={ind} wordAudio={wordAudio} />
